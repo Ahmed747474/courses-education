@@ -1,0 +1,30 @@
+.card {
+  background-color: #181818;
+  margin: 5px;
+  border-radius: 10px;
+  .card-title a {
+    color: #fff;
+    &:hover {
+      text-decoration: none;
+      color: #55af53;
+    }
+  }
+  .card-body {
+    width: 251px;
+  }
+  .crowded {
+    color: #ff4800;
+  }
+  .notcrowded {
+    color: #55af53;
+  }
+  .btn {
+    color: #55af53;
+    border-radius: 10px;
+    width: 83px;
+    font-size: 0.6rem;
+  }
+  .pay {
+    color: #fff;
+  }
+}

@@ -1,0 +1,14 @@
+.requests {
+  margin: 20px;
+}
+.title {
+  color: #fff;
+  margin-top: 10px;
+}
+.title::after {
+  content: "";
+  width: 20%;
+  height: 5px;
+  display: inline-block;
+  background-color: #5cbe5a;
+}

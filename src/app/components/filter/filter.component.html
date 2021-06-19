@@ -1,0 +1,61 @@
+<section class="filter-section">
+  <div class="row">
+    <div class="col-12">
+      <span class="filter-title"> Filter By: </span>
+      <hr />
+    </div>
+    <div class="col-md-12">
+      <span class="filter-head"> Duration: </span>
+      <label class="container" *ngFor="let item of filters.duration">
+        {{ item.name }}
+
+        <input
+          type="checkbox"
+          [(ngModel)]="item.cheked"
+          (ngModelChange)="
+            filterChange(item.key, item.code, $event, item.duractionCode)
+          "
+          value="less2"
+          id="defaultCheck1"
+        />
+        <span class="checkmark"></span>
+      </label>
+
+      <hr />
+    </div>
+    <div class="col-md-12">
+      <span class="filter-head"> Category: </span>
+      <label class="container" *ngFor="let item of filters.category">
+        {{ item.name }}
+
+        <input
+          type="checkbox"
+          (ngModelChange)="filterChange(item.key, item.name, $event)"
+          value="less2"
+          [(ngModel)]="item.cheked"
+          id="defaultCheck1"
+        />
+        <span class="checkmark"></span>
+      </label>
+
+      <hr />
+    </div>
+    <div class="col-md-12">
+      <span class="filter-head"> Level: </span>
+      <label class="container" *ngFor="let item of filters.level">
+        {{ item.name }}
+
+        <input
+          type="checkbox"
+          (ngModelChange)="filterChange(item.key, item.name, $event)"
+          value="less2"
+          [(ngModel)]="item.cheked"
+          id="defaultCheck1"
+        />
+        <span class="checkmark"></span>
+      </label>
+
+      <hr />
+    </div>
+  </div>
+</section>

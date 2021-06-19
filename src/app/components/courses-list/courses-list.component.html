@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="title">
+        <h2 *ngIf="courseslistFilter.length === courseslist.length">All Courses</h2>
+        <h2 *ngIf="courseslistFilter.length < courseslist.length">Courses</h2>
+
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div>
+        <div class="input-icons">
+          <i class="fa fa-search icon"></i>
+          <input
+            class="input-field"
+            [(ngModel)]="searchText"
+            placeholder="search by course name"
+            type="text"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+   <div *ngIf="courseslistFilter.length > 0 else noCourses " class="row row-cols-1 row-cols-md-2">
+    <div
+      class="col mb-3"
+      *ngFor="let item of courseslistFilter | filter: searchText"
+    >
+      <app-course-base [course]="item"></app-course-base>
+    </div>
+
+  </div>
+</div>
+<ng-template #noCourses>
+  <div >
+    <h2 class="text-center">There's No Courses !</h2>
+  </div>
+</ng-template>
+
+<ng-template *ngIf="loading$" #loading>
+  <div class="spinner-border text-success" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</ng-template>
+<ng-template *ngIf="hasError" #err>
+  <div >
+    <h2 class="text-center">{{error}}</h2>
+  </div>
+</ng-template>

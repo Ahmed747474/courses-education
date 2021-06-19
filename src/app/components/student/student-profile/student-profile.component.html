@@ -1,0 +1,23 @@
+<section class="profile">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="col-md-6">
+        <div class="title">
+           <h2 >My Profile</h2>
+
+        </div>
+      </div>
+      <div class="card" style="width:100%;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Name: {{studnet?.Name}}</li>
+          <li class="list-group-item">Email: {{studnet?.Email}}</li>
+          <li class="list-group-item">Phone: {{studnet?.Phone}}</li>
+          <li class="list-group-item">Address: {{studnet?.Address}}</li>
+          <li class="list-group-item">RegisterDate: {{studnet?.RegisterDate | date}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</section>

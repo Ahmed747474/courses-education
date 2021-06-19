@@ -1,0 +1,73 @@
+<div class="card">
+  <img
+    #thisImage
+    [src]="course.CourseImg"
+    width="300px"
+    height="140px"
+    (error)="thisImage.src = '../../../assets/image/banner.png'"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title"> <a href="">{{ course.CourseName }}</a></h5>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+           <div *ngIf="!paymentType"  class="col-6">
+            <p  class="card-text">
+              <small class="text-muted text-right">{{ course.CourseLevel }} </small>
+            </p>
+          </div>
+          <div *ngIf="!paymentType" class="col-6">
+            <p   class="card-text">
+              <small class="text-muted text-right">
+                <i
+                  [ngClass]="{
+                    crowded: course.AvailableSeats < 50,
+                    notcrowded: course.AvailableSeats > 50
+                  }"
+                  class="fa fa-users"
+                ></i>
+                {{ course.AvailableSeats }}
+              </small>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <p *ngIf="!paymentType" class="card-text">
+              <small class="text-muted text-right">
+                Duration: {{ course.CourseDuration }}H
+              </small>
+            </p>
+            <span  class=" text-center pay"*ngIf="paymentType">
+              <p>
+                <i class="fa fa-cc-visa" aria-hidden="true"></i>
+              {{ paymentType}}
+              </p>
+            </span>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <div class="col-6 d-flex">    <p class="card-text">
+                <small class="text-muted text-right">
+                  {{ course.CoursePrice | currency }}
+                </small>
+              </p></div>
+              <div class="col-6 m-10">
+
+                <button *ngIf="!paymentType" type="button" class="btn btn-outline-light btn-sm ml-60">Add To Cart</button>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
